@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+
+.div_player1 {
+    background: rosybrown;
+}
+.div_player2 {
+    background: lightblue;
+}
+
+.div_player1, .div_player2 {
+    position: relative;
+    top: 20%;
+}
+
+
+
+
+.div_screen1, .div_screen2 {
+    min-width: 50%;
+    min-height: 100vh;
+
+margin: none;
+
+    text-align: center;
+}
+
+.div_screen1 {
+    background: lightgrey;
+}
+.div_screen2 {
+    background: lightseagreen;
+}
+
+.current {
+    position: relative;
+    top: 55%;
+}
+
+.newGame, .rollDice, .throw {
+    position: absolute;
+    right: 45%;
+    left: 45%;
+}
+.newGame {
+    top: 5%;
+
+    background: yellow;
+}
+.rollDice {
+    top: 75%;
+}
+.throw {
+    top: 85%;
+}
