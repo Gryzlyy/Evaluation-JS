@@ -31,11 +31,13 @@ function throwDice(user) {
 
 function rollDice(player) {
   let result = getRandom()
+  console.log(result)
   if (result === 1) {
     player.scoreRound = 0;
     return switchPlayer(users);
   } else {
-    return player.scoreRound += result;
+    player.scoreRound += result;
+
   }
 }
 
@@ -50,12 +52,14 @@ function hold(joueur) {
   return joueur.scoreGlobal += joueur.scoreRound;
 }
 
-
+function iconOwner(user) {
+  user[0].isNextPlayer === true ? (iconBsP1.style.display = 'block', iconBsP2.style.display = 'none') : (iconBsP1.style.display = 'none', iconBsP2.style.display = 'block'); 
+}
 
 // DÉFINIT QUI EST LE PROCHAIN JOUEUR 
 function whoIsNext(array) {
   let nextPlayer = array.find(element => element.isNextPlayer === true)
-  console.log(nextPlayer)
+  //console.log(nextPlayer)
   return nextPlayer;
 }
 
@@ -74,10 +78,14 @@ function whoStart(user) {
 function switchPlayer(user) {
   if (user[0].isNextPlayer === true) {
     user[0].isNextPlayer = false
-    user[1].isNextPlayer = true 
+    user[1].isNextPlayer = true
+    iconOwner(user)
+    console.log('Au tour du joueur 2 !') 
   } else if (user[1].isNextPlayer === true) {
     user[0].isNextPlayer = true
     user[1].isNextPlayer = false 
+    iconOwner(user)
+    console.log('Au tour du joueur 1 !')
   }
 }
 
