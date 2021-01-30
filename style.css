@@ -43,19 +43,20 @@ margin: none;
     top: 55%;
 }
 
-.newGame, .rollDice, .throw {
+.newGame, .rollDice, .throw, .resetGame {
     position: absolute;
     right: 45%;
     left: 45%;
 }
 .newGame {
-    top: 5%;
-
-    background: yellow;
+    top: 60%;
 }
 .rollDice {
     top: 75%;
 }
 .throw {
     top: 85%;
+}
+.resetGame {
+    top: 10%;
 }

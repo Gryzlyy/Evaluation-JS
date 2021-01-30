@@ -13,12 +13,12 @@
             <!--DIV PLAYER 1-->
             <div class="div_player1">
                 <h2>PLAYER 1</h2>
-                <h3>points<h3>
+                <h3 id="scoreGlobalDisplayP1"><h3>
             </div>
             <!--DIV SCORE ROUND-->
             <div class="current">
                 <h4>Current Score</h4>
-                <span>points</span>
+                <span id="scoreRoundDisplayP1">points</span>
             </div>
         </div>
 
@@ -27,30 +27,36 @@
             <!--DIV PLAYER 2-->
             <div class="div_player2">
                 <h2>PLAYER 2</h2>
-                <h3>points<h3>
+                <h3 id="scoreGlobalDisplayP2"><h3>
             </div>
             <!--DIV SCORE ROUND-->
             <div class="current">
                 <h4>Current Score</h4>
-                <span>points</span>
+                <span id="scoreRoundDisplayP2">points</span>
             </div>
         </div>
 
     </div>
 
     <!--NEW GAME-->
-    <div class="newGame">
-        <span>NEW GAME</span>
+    <div class="newGame" id="newGameBtn">
+        <button>NEW GAME</button>
+    </div>
+
+    <!--RESET GAME-->
+    <div class="resetGame" id="resetGameBtn">
+        <button>RESET GAME</button>
     </div>
 
     <!--ROLL DICE-->
-    <div class="rollDice">
-        <span>ROLL DICE</span>
+    <div class="rollDice" id="rollDiceBtn" style="display: none;">
+        <button>ROLL DICE</button>
     </div>
 
     <!--HOLD-->
-    <div class="throw">
-        <span>HOLD</span>
+    <div class="throw" id="holdBtn" style="display: none;">
+        <button>HOLD</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
