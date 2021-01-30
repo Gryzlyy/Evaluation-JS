@@ -47,9 +47,10 @@ function getRandom () {
 }
 
 // HOLD SO SG += SR
-function hold(joueur) {
-  joueur.isNextPlayer === false
-  return joueur.scoreGlobal += joueur.scoreRound;
+function hold(player) {
+  player.isNextPlayer === false
+  switchPlayer(users)
+  return player.scoreGlobal += player.scoreRound;
 }
 
 function iconOwner(user) {
@@ -146,3 +147,6 @@ resetGameButton.addEventListener('click', () => {
 rollDiceButton.addEventListener('click', () => {
   throwDice(users)
 }) 
+holdButton.addEventListener('click', () => {
+hold(users)
+})
