@@ -4,38 +4,32 @@
     justify-content: space-around;
 }
 
-
-
-
-.div_player1 {
-    background: rosybrown;
+body, .div_player1,  .div_screen1 {
+    background-color: rgb(245, 244, 237);
 }
-.div_player2 {
-    background: lightblue;
+.div_player2, .div_screen2 {
+    background-color: rgb(252, 240, 240);
 }
+
 
 .div_player1, .div_player2 {
     position: relative;
     top: 20%;
 }
 
-
+.bi {
+    position: absolute;
+    left: 30%;
+}
 
 
 .div_screen1, .div_screen2 {
     min-width: 50%;
     min-height: 100vh;
 
-margin: none;
+    margin: none;
 
     text-align: center;
-}
-
-.div_screen1 {
-    background: lightgrey;
-}
-.div_screen2 {
-    background: lightseagreen;
 }
 
 
