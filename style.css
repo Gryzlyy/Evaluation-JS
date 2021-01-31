@@ -4,7 +4,7 @@ ion-grid {
 }
 
 .div_screen {
-    height: 70vh;
+    height: 60vh;
     display: inline-block;
 }
 .newGame {
@@ -16,8 +16,11 @@ ion-grid {
 
 }
 
-#dicesDisplay {
-   
+.dice {
+   margin-top: 5em;
+   margin-left: auto;
+   margin-right: auto;
+  
 }
 
 .bi-caret-right-fill {
