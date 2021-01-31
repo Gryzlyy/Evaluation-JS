@@ -4,14 +4,17 @@ const resetGameButton = document.getElementById('resetGameBtn')
 const rollDiceButton = document.getElementById('rollDiceBtn')
 const holdButton = document.getElementById('holdBtn')
 
-let scoreGlobalDisplayP1 = document.getElementById('scoreGlobalDisplayP1')
-let scoreRoundDisplayP1 = document.getElementById('scoreRoundDisplayP1')
+const scoreGlobalDisplayP1 = document.getElementById('scoreGlobalDisplayP1')
+const scoreRoundDisplayP1 = document.getElementById('scoreRoundDisplayP1')
 
-let scoreGlobalDisplayP2 = document.getElementById('scoreGlobalDisplayP2')
-let scoreRoundDisplayP2 = document.getElementById('scoreRoundDisplayP2')
+const scoreGlobalDisplayP2 = document.getElementById('scoreGlobalDisplayP2')
+const scoreRoundDisplayP2 = document.getElementById('scoreRoundDisplayP2')
 
 const iconBsP1 = document.getElementById('iconP1')
 const iconBsP2 = document.getElementById('iconP2')
+
+const congratsP1 = document.getElementById('congratsP1')
+const congratsP2 = document.getElementById('congratsP2')
 
 class Joueur {
     constructor() {
@@ -23,21 +26,23 @@ class Joueur {
 
 user = []
 
-// THROW DICE
+// Find the play who's gonna play, and roll dice
 function throwDice(user) {
   let player = whoIsNext(user)
   rollDice(player)
 }
 
+// Roll dice
 function rollDice(player) {
   let result = getRandom()
   console.log(result)
   if (result === 1) {
     player.scoreRound = 0;
+    player === users[0] ? scoreRoundDisplayP1.innerHTML = player.scoreRound : scoreRoundDisplayP2.innerHTML = player.scoreRound
     return switchPlayer(users);
   } else {
     player.scoreRound += result;
-
+    player === users[0] ? scoreRoundDisplayP1.innerHTML = player.scoreRound : scoreRoundDisplayP2.innerHTML = player.scoreRound
   }
 }
 
@@ -46,32 +51,60 @@ function getRandom () {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-// HOLD SO SG += SR
-function hold(player) {
-  player.isNextPlayer === false
-  switchPlayer(users)
-  return player.scoreGlobal += player.scoreRound;
+// HOLD SG += SR
+function hold(user) {
+  if (user[0].isNextPlayer === true) {
+    user[0].scoreGlobal += user[0].scoreRound;
+    scoreGlobalDisplayP1.innerHTML = user[0].scoreGlobal;
+    user[0].scoreRound = 0;
+    scoreRoundDisplayP1.innerHTML = user[0].scoreRound;
+    if (winnerIs(user)){
+      congratsP1.style.display = 'block';
+      iconBsP1.style.display = 'none';
+      return iconBsP2.style.display = 'none';
+    }
+    return switchPlayer(user) 
+  } else if (user[1].isNextPlayer === true) {
+    user[1].scoreGlobal += user[1].scoreRound;
+    scoreGlobalDisplayP2.innerHTML = user[1].scoreGlobal;
+    user[1].scoreRound = 0;
+    scoreRoundDisplayP2.innerHTML = user[1].scoreRound;
+    if(winnerIs(user)){
+      congratsP2.style.display = 'block';
+      iconBsP2.style.display = 'none';
+      return iconBsP1.style.display = 'none';
+    }
+    return switchPlayer(user) 
+  }
 }
 
+// End game, pick the winner
+function winnerIs(user) {
+  if (user[0].scoreGlobal >= 100 || user[1].scoreGlobal >= 100) {
+    console.log('La partie est terminée ! Bravo')
+    rollDiceButton.style.display = 'none';
+    holdButton.style.display = 'none';
+    return true;
+  }
+}
+
+// Icon display for current player
 function iconOwner(user) {
   user[0].isNextPlayer === true ? (iconBsP1.style.display = 'block', iconBsP2.style.display = 'none') : (iconBsP1.style.display = 'none', iconBsP2.style.display = 'block'); 
 }
 
-// DÉFINIT QUI EST LE PROCHAIN JOUEUR 
+// Who's next player 
 function whoIsNext(array) {
   let nextPlayer = array.find(element => element.isNextPlayer === true)
-  //console.log(nextPlayer)
   return nextPlayer;
 }
 
-// DÉFINIT QUI COMMENCE DE FAÇON RANDOM
+// WHO START, RANDOM PICK
 function whoStart(user) {
   const starter = Math.floor(Math.random() * 2) 
   user[starter].isNextPlayer = true;
   console.log('Le joueur ' + (starter + 1) + ' commence !')
-  
   user[0].isNextPlayer === true ? iconBsP1.style.display = 'block' : iconBsP2.style.display = 'block';
-
   return user[starter];
 }
 
@@ -80,19 +113,15 @@ function switchPlayer(user) {
   if (user[0].isNextPlayer === true) {
     user[0].isNextPlayer = false
     user[1].isNextPlayer = true
-    iconOwner(user)
-    console.log('Au tour du joueur 2 !') 
+    console.log('Au tour du joueur 2 !')
+    return iconOwner(user)
   } else if (user[1].isNextPlayer === true) {
     user[0].isNextPlayer = true
     user[1].isNextPlayer = false 
-    iconOwner(user)
     console.log('Au tour du joueur 1 !')
+    return iconOwner(user)
   }
 }
-
-
-
-
 
 // START A NEW GAME
 function newGame(user) {
@@ -101,7 +130,10 @@ function newGame(user) {
 
   holdButton.style.display = 'block';
   rollDiceButton.style.display = 'block';
-  //newGameButton.style.display = 'none';
+  newGameButton.style.display = 'none';
+  resetGameButton.style.display = 'block';
+  congratsP1.style.display = 'none';
+  congratsP2.style.display = 'none';
   
   scoreGlobalDisplayP1.innerHTML = user[0].scoreGlobal
   scoreRoundDisplayP1.innerHTML = user[0].scoreRound
@@ -122,6 +154,7 @@ function resetGame(user) {
   newGameButton.style.display = 'block';
   holdButton.style.display = 'none';
   rollDiceButton.style.display = 'none';
+  resetGameButton.style.display = 'none';
 
   iconBsP1.style.display = 'none';
   iconBsP2.style.display = 'none';
@@ -130,6 +163,9 @@ function resetGame(user) {
   scoreRoundDisplayP1.innerHTML = 0
   scoreGlobalDisplayP2.innerHTML = 0
   scoreRoundDisplayP2.innerHTML = 0
+
+  congratsP1.style.display = 'none';
+  congratsP2.style.display = 'none';
 }
 
 
@@ -139,7 +175,7 @@ newGameButton.addEventListener('click', () => {
   whoIsNext(users);
 })
 resetGameButton.addEventListener('click', () => {
-  resetGame(user);
+  resetGame(users);
   console.clear();
 })
 
@@ -148,5 +184,5 @@ rollDiceButton.addEventListener('click', () => {
   throwDice(users)
 }) 
 holdButton.addEventListener('click', () => {
-hold(users)
+  hold(users)
 })
