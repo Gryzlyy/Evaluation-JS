@@ -16,6 +16,14 @@ const iconBsP2 = document.getElementById('iconP2')
 const congratsP1 = document.getElementById('congratsP1')
 const congratsP2 = document.getElementById('congratsP2')
 
+const dice1 = document.getElementById('dice1')
+const dice2 = document.getElementById('dice2')
+const dice3 = document.getElementById('dice3')
+const dice4 = document.getElementById('dice4')
+const dice5 = document.getElementById('dice5')
+const dice6 = document.getElementById('dice6')
+
+
 class Joueur {
     constructor() {
         this.scoreGlobal = 0
@@ -35,6 +43,7 @@ function throwDice(user) {
 // Roll dice
 function rollDice(player) {
   let result = getRandom()
+  dicesdisplay(result)
   console.log(result)
   if (result === 1) {
     player.scoreRound = 0;
@@ -45,6 +54,64 @@ function rollDice(player) {
     player === users[0] ? scoreRoundDisplayP1.innerHTML = player.scoreRound : scoreRoundDisplayP2.innerHTML = player.scoreRound
   }
 }
+
+// Display dice according to the result 
+function dicesdisplay(result) {
+  switch (result) {
+    case 1:
+      dice1.style.display = 'block';
+      dice2.style.display = 'none';
+      dice3.style.display = 'none';
+      dice4.style.display = 'none';
+      dice5.style.display = 'none';
+      dice6.style.display = 'none';
+      break;
+    case 2:
+      dice2.style.display = 'block';
+      dice1.style.display = 'none';
+      dice3.style.display = 'none';
+      dice4.style.display = 'none';
+      dice5.style.display = 'none';
+      dice6.style.display = 'none';
+      break;
+    case 3: 
+      dice3.style.display = 'block';
+      dice1.style.display = 'none';
+      dice2.style.display = 'none';
+      dice4.style.display = 'none';
+      dice5.style.display = 'none';
+      dice6.style.display = 'none';
+      break; 
+    case 4:
+      dice4.style.display = 'block';
+      dice1.style.display = 'none';
+      dice2.style.display = 'none';
+      dice3.style.display = 'none';
+      dice5.style.display = 'none';
+      dice6.style.display = 'none';
+      break;
+    case 5: 
+      dice5.style.display = 'block';
+      dice1.style.display = 'none';
+      dice2.style.display = 'none';
+      dice3.style.display = 'none';
+      dice4.style.display = 'none';
+      dice6.style.display = 'none';
+      break;
+    case 6:
+      dice6.style.display = 'block';
+      dice1.style.display = 'none';
+      dice2.style.display = 'none';
+      dice3.style.display = 'none';
+      dice4.style.display = 'none';
+      dice5.style.display = 'none';
+      break;
+    default:
+      console.log('Throw dices please !')
+      break;
+  }
+}
+
 
 // PICK A NUMBER RANDOMLY BETWEEN 1 AND 6
 function getRandom () {
@@ -166,6 +233,13 @@ function resetGame(user) {
 
   congratsP1.style.display = 'none';
   congratsP2.style.display = 'none';
+
+  dice1.style.display = 'none';
+  dice2.style.display = 'none';
+  dice3.style.display = 'none';
+  dice4.style.display = 'none';
+  dice5.style.display = 'none';
+  dice6.style.display = 'none';
 }
 
 

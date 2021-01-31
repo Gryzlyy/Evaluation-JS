@@ -1,59 +1,25 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+ion-grid {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
 }
 
-body, .div_player1,  .div_screen1 {
-    background-color: rgb(245, 244, 237);
-}
-.div_player2, .div_screen2 {
-    background-color: rgb(252, 240, 240);
-}
-
-
-.div_player1, .div_player2 {
-    position: relative;
-    top: 20%;
-}
-
-.bi {
-    position: absolute;
-    left: 30%;
-}
-
-
-.div_screen1, .div_screen2 {
-    min-width: 50%;
-    min-height: 100vh;
-
-    margin: none;
-
-    text-align: center;
-}
-
-
-
-
-.current {
-    position: relative;
-    top: 55%;
-}
-
-.newGame, .rollDice, .throw, .resetGame {
-    position: absolute;
-    right: 45%;
-    left: 45%;
+.div_screen {
+    height: 70vh;
+    display: inline-block;
 }
 .newGame {
-    top: 60%;
+    height: 20vh;
 }
-.rollDice {
-    top: 75%;
+
+.div_player {
+    background-color: rgb(248, 248, 245);
+
 }
-.throw {
-    top: 85%;
+
+#dicesDisplay {
+   
 }
-.resetGame {
-    top: 10%;
+
+.bi-caret-right-fill {
+    position: absolute;
 }
