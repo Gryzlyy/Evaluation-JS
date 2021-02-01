@@ -1,28 +1,33 @@
+@import url('Images/Lato/Lato-Light.ttf');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
 ion-grid {
     --ion-grid-padding: 0;
     --ion-grid-column-padding: 0;
 }
 
 .div_screen {
-    height: 60vh;
+    height: 40vh;
     display: inline-block;
-}
-.newGame {
-    height: 20vh;
-}
 
-.div_player {
-    background-color: rgb(248, 248, 245);
-
+    margin-bottom: 5%;
 }
 
-.dice {
-   margin-top: 5em;
-   margin-left: auto;
-   margin-right: auto;
-  
+#dicesDisplay {
+    top: 90%;
+    left: -30%;
 }
 
-.bi-caret-right-fill {
+.bi-caret-right-fill  {
     position: absolute;
+}
+
+@media screen and (min-width: 760px) {
+    #dicesDisplay {
+        top: 90%;
+        left: 20%;
+    }
 }

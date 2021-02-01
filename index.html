@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <ion-content>
+    <ion-content style="background-color: rgb(254, 249, 231);">
         <ion-grid>
-            <ion-row class="ion-text-center" size="12" style="margin-top: 4em;">
+            <ion-row class="ion-text-center" size="12" style="margin-top: 4em; margin: 5%; padding: 1em; color: rgb(241, 148, 138)">
                 <ion-col class="div_screen">
                     <div>
                         <div class="div_player">
@@ -28,7 +28,7 @@
                             </h2>
                             
                             <h3 id="scoreGlobalDisplayP1" class="scoreGlobalDisplay">0<h3>
-                            <h4 id="congratsP1" style="display: none">CONGRATS ! YOU WON !</h4>
+                            <h4 id="congratsP1" style="display: none; color: rgb(88, 214, 141);">CONGRATS YOU WON</h4>
                         </div>
                         <div class="current">
                             <h4>Current Score</h4>
@@ -37,9 +37,9 @@
                     </div>
                 </ion-col>
 
-                <ion-col>
+                <ion-col size="2" id="col-dices">
                        <!-- DICES -->
-                       <div id="dicesDisplay" style="position: relative;">
+                       <div id="dicesDisplay" style="position: absolute;">
                         <svg id="dice1" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" fill="currentColor" class="bi bi-dice-1 dice" viewBox="0 0 16 16">
                             <circle cx="8" cy="8" r="1.5"/>
                             <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z"/>
@@ -84,7 +84,7 @@
                             </h2>
 
                             <h3 id="scoreGlobalDisplayP2" class="scoreGlobalDisplay">0<h3>
-                            <h4 id="congratsP2" style="display: none">CONGRATS ! YOU WON !</h4>
+                            <h4 id="congratsP2" style="display: none; color: rgb(88, 214, 141);">CONGRATS YOU WON</h4>
                         </div>
                         <!--DIV SCORE ROUND-->
                         <div class="current">
@@ -95,7 +95,7 @@
                 </ion-col>
             </ion-row>
 
-            <ion-row class="ion-text-center">
+            <ion-row class="ion-text-center" style="margin-top: 15%; margin-right: 10%; margin-left: 10%;">
                 <ion-col>
                     <!--NEW GAME-->
                     <div class="newGame" id="newGameBtn">
